@@ -1,0 +1,39 @@
+fiilebeat.inputs:
+  - type: filesteam
+    enable: true
+    id: micro-service-1-logs
+    paths:
+      - absolute path to app.log
+    fields:
+      service: micro-service-1
+    parsers:
+      - ndjson:
+          overwrite_keys: true
+          add_error_key: true
+
+  - type: filesteam
+    enable: true
+    id: micro-service-2-logs
+    paths:
+      - absolute path to app.log
+    fields:
+      service: micro-service-2
+    parsers:
+      - ndjson:
+          overwrite_keys: true
+          add_error_key: true
+
+  - type: filesteam
+    enable: true
+    id: micro-service-3-logs
+    paths:
+      - absolute path to app.log
+    fields:
+      service: micro-service-3
+    parsers:
+      - ndjson:
+          overwrite_keys: true
+          add_error_key: true
+
+output.logstash:
+  host: ["localhost:5044"]
